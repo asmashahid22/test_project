@@ -1,0 +1,14 @@
+<%= form_with scope: :story, url: stories_path, local: true do |f| %>
+    <h1>Create Stories</h1>
+    <div class="field">
+        <%= f.label :Add_image %><br />
+        <%= f.file_field :image ,required: true,accept: "image/png,image/jpg,image/jpeg"%>
+      </div>
+      <br>
+    <p>
+        <%= f.submit  class: "btn btn-warning" %>
+      </p>
+    
+    <% end %>
+    <%= link_to 'Back',root_path,class:"btn btn-primary"%>
+    

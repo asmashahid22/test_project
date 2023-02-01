@@ -1,0 +1,26 @@
+<div class="row ">
+<div class="col-6" style="margin: auto; margin-top: 30px; margin-bottom: 30px;">
+<div class="jumbotron">
+  <% current_user.posts.each do |post| %>
+    <br>
+     <b>Title:</b> <%= post.title %><br />
+    <b> Description: </b><%= post.description %>
+    <%(post.images).each do |image|%>
+      <div style="width:50px;height:auto;">
+        <%= image_tag(image,class:"heheh")%>
+      
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } ,class:"btn btn-danger", style: "margin-top: 20px;"%>  
+      <br><%= (post.likes.count) == 1 ? 'Like' : 'Likes'%><%=post.likes.count%>
+    <%= like_check(post)%>
+      <%= render 'postcomment' %>
+      <%= render partial: 'comments/comment', collection: post.comments ,as: :comment %>
+      </div>
+    <%end%>
+    <%end%>
+ 
+  </div>
+
+
+  </div>
+  </div>
+  

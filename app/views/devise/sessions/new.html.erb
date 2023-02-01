@@ -1,0 +1,59 @@
+
+<section class="wrapper">
+
+<div class="left">
+  <img src="/assets/phones.png" alt="phone">
+  <img class="screen" src="/assets/screen.jpg" alt="phone-screen">
+</div>
+
+<div class="right">
+  <div class="panel login">
+  <img id="logo" src="/assets/instagram-logo.png" alt="logo">
+   
+ 
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-group">
+    
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control", style: "margin-top: 10px;"  %>
+    </div>
+  
+    <div class="form-group">
+    
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control", style: "margin-top: 10px;"   %>
+    </div>
+  
+    <% if devise_mapping.rememberable? %>
+      <div class="form-check">
+        <%= f.check_box :remember_me, class: "form-check-input", style: "margin-top: 10px;" %>
+        <%= f.label :remember_me,  class: "form-check-label", style: "margin-top: 10px;"  %>
+      </div>
+    <% end %>
+  
+    <div class="actions">
+      <%= f.submit "Log in", class: "btn btn-primary", style: "margin-top: 10px;" %>
+    </div>
+  <% end %>
+ 
+
+  </div>
+
+  <div class="panel signup" >
+
+  <%= render "devise/shared/links" %>
+
+  </div>
+
+  <div class="apps">
+     <p>Get the app.</p>
+    <div class="app-stores">
+    <img src="/assets/app-store.svg" alt="App Store">
+    <img src="/assets/play-store.svg" alt="Play Store">
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+

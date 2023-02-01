@@ -1,0 +1,8 @@
+<% current_user.stories.each do |story| %>
+    <div style="width:20px;height:auto;">
+      <%= image_tag(story.image,style:'width:200%;border-radius:300px;')%>
+    </div><br/>
+    <%= link_to 'Delete Story',story_path(story), method: :delete ,class:" btn-danger btn-sm"%>
+  
+  <%end%>
+  

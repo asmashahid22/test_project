@@ -1,0 +1,8 @@
+<%(@post.images).each do |image|%>
+    <div style="width:50px;height:auto;">
+    <%= image_tag(image)%>
+    </div>
+    <%end%>
+    <%= link_to 'delete', post_path(@post), method: :delete %> |
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    

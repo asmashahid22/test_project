@@ -1,0 +1,14 @@
+<div class="jumbotron">
+<% if @results.present?%>
+<h1>Search Results</h1>
+<% @results.each do |result|%>
+<%= result.username%> <%= link_to 'show',user_path(result.id),class:" btn btn-info"%> <br/>
+<b>Name:</b><%= result.firstname%>
+<b>Email:</b><%= result.email%>
+<%end%>
+</div>
+<br>
+<%else%>
+No user found
+<%end%>
+<%= link_to 'Back',root_path,class:"btn btn-primary"%>

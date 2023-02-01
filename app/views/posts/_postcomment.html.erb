@@ -1,0 +1,13 @@
+<% current_user.posts.each do |post| %>
+    <%= form_with(model: [post, post.comments.build ], remote: true) do |form| %>
+              <%= form.label :Comment, style: "margin-top:20px;"%>
+              <br>
+              <%= form.text_field :body, required: true, style: "margin-top:20px; margin-left: 150px" %>
+                <%= form.hidden_field :user_id, value: current_user.id %>
+                <br>
+              <%= form.submit class:"btn btn-success", style: "margin-top:20px; margin-left: 150px"  %>
+          <%end%>
+  <%end%>
+  
+  
+  

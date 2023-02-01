@@ -1,0 +1,66 @@
+
+<section class="wrapper">
+
+<div class="left">
+  <img src="/assets/phones.png" alt="phone">
+  <img class="screen" src="/assets/screen.jpg" alt="phone-screen">
+</div>
+
+<div class="right">
+  <div class="panel login">
+  <img id="logo" src="/assets/instagram-logo.png" alt="logo">
+   
+  
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+    <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname", placeholder: "First Name",class:"form-control",required: true, style: "margin-top: 10px;" %>
+  </div>
+
+   <div class="field">
+    <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname", placeholder: "Last Name",class:"form-control" ,required: true, style: "margin-top: 10px;"%>
+  </div>
+
+    <div class="field">
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Username",class:"form-control",required: true, style: "margin-top: 10px;"%>
+   </div>
+
+
+    <div class="form-group">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control", style: "margin-top: 10px;" %>
+    </div>
+  
+    <div class="form-group">
+     
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-control", style: "margin-top: 10px;"   %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password Confirmation", class: "form-control", style: "margin-top: 10px;"   %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "Sign up", class: "btn btn-primary", style: "margin-top: 10px;" %>
+    </div>
+  <% end %>
+  
+  </div>
+
+  <div class="panel signup" >
+
+  <%= render "devise/shared/links" %>
+
+  </div>
+
+  <div class="apps">
+     <p>Get the app.</p>
+    <div class="app-stores">
+    <img src="/assets/app-store.svg" alt="App Store">
+    <img src="/assets/play-store.svg" alt="Play Store">
+    </div>
+  </div>
+
+</div>
+
+</section>
