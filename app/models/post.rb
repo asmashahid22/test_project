@@ -3,6 +3,6 @@ class Post < ApplicationRecord
   has_many_attached :images
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  validates :title, presence: true
-  validates :description, presence: true
+  validates :title, presence: true, length: {minimum:5 , maximum: 100}
+  validates :title, presence: true, length: {minimum:5 , maximum: 500}
 end

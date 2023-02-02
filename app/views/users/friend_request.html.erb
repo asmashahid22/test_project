@@ -1,0 +1,13 @@
+<div class= "jumbotron shadow">
+Hey <%= current_user.username %>!!
+<br>
+<h1>Friend Requests</h1>
+<% current_user.sending_users.each do |user|%>
+  <%= user.username %>
+  <%= link_to 'accept',accept_request_user_path(user),method: :post,class:"btn-info btn-sm shadow"%>
+  <%= link_to 'reject',reject_request_user_path(user),method: :delete,class:"btn-warning btn-sm shadow"%>
+<%end%>
+<br>
+<div>
+<br />
+<%= link_to 'Back',root_path,class:"btn btn-primary shadow"%>

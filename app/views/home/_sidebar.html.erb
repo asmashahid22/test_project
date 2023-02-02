@@ -1,0 +1,28 @@
+More
+<div class=" flex-column flex-shrink-0 p-3 text-bg-light shadow" style="width: 200px;float:right;">
+    <a href="/" class="d-flex align-items-center  text-dark text-decoration-none  side">
+    <aside> Followers:<%= current_user.follower_users.count%>
+     <% for user in current_user.follower_users %>
+       <%= user.username %>
+    <% end %>
+    </aside>
+<br>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <%= link_to 'All users',users_path,class:"btn btn-outline-dark btn-sm"%>
+      </li>
+      <br>
+      <li>
+          <%= link_to 'Add story',new_story_path,class:"btn btn-outline-dark btn-sm" %>
+      </li>
+      <br>
+      <li>
+          <%= link_to 'Requests',friend_requests_users_path,class:"btn btn-outline-dark btn-sm"%>
+      </li>
+      <br>
+    </ul>
+    <hr>
+
+  </div>

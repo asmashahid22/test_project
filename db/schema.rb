@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_31_234322) do
+ActiveRecord::Schema.define(version: 2023_02_02_120554) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,31 @@ ActiveRecord::Schema.define(version: 2023_01_31_234322) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "followers", force: :cascade do |t|
+    t.integer "following_user_id"
+    t.integer "followed_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_user_id"], name: "index_followers_on_followed_user_id"
+    t.index ["following_user_id"], name: "index_followers_on_following_user_id"
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "follower_user_id"
+    t.integer "following_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "friendrequests", force: :cascade do |t|
+    t.integer "send_user_id"
+    t.integer "receive_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receive_user_id"], name: "index_friendrequests_on_receive_user_id"
+    t.index ["send_user_id"], name: "index_friendrequests_on_send_user_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
@@ -59,6 +84,13 @@ ActiveRecord::Schema.define(version: 2023_01_31_234322) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "sending_user_id"
+    t.integer "receiving_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "stories", force: :cascade do |t|

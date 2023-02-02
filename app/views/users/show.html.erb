@@ -1,5 +1,27 @@
-<h1 style="margin-left: 250px; margin-top: 100px;">Welcome to Instagram Clone</h1>
-<% if current_user %>
+<div class="row justify-content-md-center profile-wrapper">
+<div class="col-md-4 text-center">
+<%= image_tag("user.jpeg", :width => "152", :height => "152", class: "round-img") %>
+</div>
+<div class="col-md-8">
+<div class="row">
+<p class= "username"><%= @user.username %></p>
+<% if @user == current_user %>
+
+<%= link_to "Edit profile", edit_user_registration_path, class:"btn btn-outline-dark btn-sm" %>
+
+<% end %>
+
+</div>
+
+<div class="row">
+<p class= "email"><%= @user.email %></p>
+</div>
+
+</div>
+</div>
+
+
+<%if @user.public_account?%>
 <div class="conatiner mt-5">
 <div class="shadow p-4 max-auto"style="max-width:400px">
  <h2>Stories</h2>
@@ -13,7 +35,6 @@
 </div>
 </div>
 <br/>
-<%= render 'sidebar'%>
 <%=@post%>
 <div style="width:400px;height:auto">
 <%= image_tag(current_user.image,style:'width:20%;border-radius:30px;')%>
@@ -53,13 +74,7 @@ Stories:
 <br>
 </div>
 </div>
-
-<%else%>
-<%= link_to 'Log in', new_user_session_path %>
-
-<%= link_to 'Sign up', new_user_registration_path %>
+  <%else%>
+  Account is private
 <%end%>
-
-
-
-
+<%= link_to 'Back',root_path,class:"btn btn-primary"%>

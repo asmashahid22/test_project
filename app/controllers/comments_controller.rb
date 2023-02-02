@@ -1,6 +1,6 @@
 
 class CommentsController < ApplicationController
-    before_action :set_post, only: %i[create destroy]
+    before_action :set_post, only: %i[create destroy edit]
     def new
       @comment = Comment.new
     end
@@ -25,7 +25,8 @@ class CommentsController < ApplicationController
         flash[:info] = 'Deletion failed'
       end
     end
-  
+
+   
     private
   
     def comment_params

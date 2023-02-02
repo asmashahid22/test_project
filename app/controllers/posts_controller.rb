@@ -1,6 +1,6 @@
 
 class PostsController < ApplicationController
-    before_action :set_params, only: %i[update destroy]
+    before_action :set_params, only: %i[edit destroy]
     def index
       @posts = Post.all
     end
